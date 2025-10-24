@@ -52,12 +52,12 @@ const ResultsPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <Button
-              variant="ghost"
-              onClick={() => navigate(-1)}
-              className="mb-6 text-muted-foreground hover:text-foreground"
+              variant="outline"
+              onClick={() => navigate("/simulador", { state: { type } })}
+              className="mb-6"
             >
               <i className="ri-arrow-left-line mr-2"></i>
-              Voltar
+              Voltar para Simulação
             </Button>
             
             <h1 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-8">
@@ -209,9 +209,10 @@ const ResultsPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <Button
               variant="outline"
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/simulador", { state: { type } })}
               className="flex-1"
             >
+              <i className="ri-arrow-left-line mr-2"></i>
               Voltar
             </Button>
             <Button

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import veiculosLevesImg from "@/assets/veiculos-leves.jpg";
 import imoveisImg from "@/assets/imoveis.jpg";
 import servicosImg from "@/assets/servicos.jpg";
@@ -63,16 +64,10 @@ const consortiumTypes = [
 ];
 
 const Simulator = () => {
+  const navigate = useNavigate();
+  
   const handleSimulation = (type: string) => {
-    const messages = {
-      "Veículos Leves": "Olá! Gostaria de simular um consórcio de *Veículos Leves* (carros, motos e utilitários). Podem me ajudar?",
-      "Imóveis": "Olá! Gostaria de simular um consórcio *Imobiliário* (casas, apartamentos e terrenos). Podem me ajudar?",
-      "Serviços": "Olá! Gostaria de simular um consórcio de *Serviços* (reformas, viagens e eventos). Podem me ajudar?",
-      "Veículos Pesados": "Olá! Gostaria de simular um consórcio de *Veículos Pesados* (caminhões, máquinas e equipamentos). Podem me ajudar?"
-    };
-    
-    const message = encodeURIComponent(messages[type as keyof typeof messages] || "Olá! Gostaria de fazer uma simulação de consórcio.");
-    window.open(`https://wa.me/5541984190707?text=${message}`, '_blank');
+    navigate("/simulador", { state: { type } });
   };
 
   return (

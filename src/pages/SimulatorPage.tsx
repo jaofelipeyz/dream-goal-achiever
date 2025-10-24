@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import {
   Select,
   SelectContent,
@@ -80,6 +81,7 @@ const consortiumData: Record<string, ConsortiumType> = {
 const SimulatorPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const type = (location.state?.type as string) || "Veículos Leves";
   const data = consortiumData[type];
 
@@ -90,7 +92,65 @@ const SimulatorPage = () => {
     rendaMensal: "",
   });
 
+  const [errors, setErrors] = useState({
+    valorDesejado: "",
+    prazo: "",
+    rendaMensal: "",
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const validateForm = () => {
+    const newErrors = {
+      valorDesejado: "",
+      prazo: "",
+      rendaMensal: "",
+    };
+
+    if (!formData.valorDesejado || parseFloat(formData.valorDesejado.replace(/[^0-9]/g, "")) < 5000) {
+      newErrors.valorDesejado = "Valor mínimo de R$ 5.000";
+    }
+
+    if (!formData.prazo) {
+      newErrors.prazo = "Selecione um prazo";
+    }
+
+    if (!formData.rendaMensal || parseFloat(formData.rendaMensal.replace(/[^0-9]/g, "")) < 1000) {
+      newErrors.rendaMensal = "Renda mínima de R$ 1.000";
+    }
+
+    setErrors(newErrors);
+    return !newErrors.valorDesejado && !newErrors.prazo && !newErrors.rendaMensal;
+  };
+
+  const formatCurrency = (value: string) => {
+    const numbers = value.replace(/\D/g, "");
+    const formatted = new Intl.NumberFormat("pt-BR", {
+      minimumFractionDigits: 2,
+    }).format(parseFloat(numbers) / 100);
+    return formatted;
+  };
+
+  const handleCurrencyChange = (field: string, value: string) => {
+    const formatted = formatCurrency(value);
+    setFormData({ ...formData, [field]: formatted });
+    if (errors[field as keyof typeof errors]) {
+      setErrors({ ...errors, [field]: "" });
+    }
+  };
+
   const handleSubmit = () => {
+    if (!validateForm()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos corretamente.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     navigate("/resultados", {
       state: {
         type,
@@ -140,31 +200,33 @@ const SimulatorPage = () => {
               <div className="space-y-6">
                 <div>
                   <Label htmlFor="valorDesejado" className="text-foreground">
-                    Valor Desejado
+                    Valor Desejado *
                   </Label>
                   <Input
                     id="valorDesejado"
                     type="text"
-                    placeholder="R$ 50.000"
+                    placeholder="R$ 50.000,00"
                     value={formData.valorDesejado}
-                    onChange={(e) =>
-                      setFormData({ ...formData, valorDesejado: e.target.value })
-                    }
-                    className="mt-2"
+                    onChange={(e) => handleCurrencyChange("valorDesejado", e.target.value)}
+                    className={`mt-2 ${errors.valorDesejado ? "border-red-500" : ""}`}
                   />
+                  {errors.valorDesejado && (
+                    <p className="text-red-500 text-sm mt-1">{errors.valorDesejado}</p>
+                  )}
                 </div>
 
                 <div>
                   <Label htmlFor="prazo" className="text-foreground">
-                    Prazo (meses)
+                    Prazo (meses) *
                   </Label>
                   <Select
                     value={formData.prazo}
-                    onValueChange={(value) =>
-                      setFormData({ ...formData, prazo: value })
-                    }
+                    onValueChange={(value) => {
+                      setFormData({ ...formData, prazo: value });
+                      if (errors.prazo) setErrors({ ...errors, prazo: "" });
+                    }}
                   >
-                    <SelectTrigger className="mt-2">
+                    <SelectTrigger className={`mt-2 ${errors.prazo ? "border-red-500" : ""}`}>
                       <SelectValue placeholder="Selecione o prazo" />
                     </SelectTrigger>
                     <SelectContent>
@@ -181,6 +243,9 @@ const SimulatorPage = () => {
                       <SelectItem value="200">200 meses</SelectItem>
                     </SelectContent>
                   </Select>
+                  {errors.prazo && (
+                    <p className="text-red-500 text-sm mt-1">{errors.prazo}</p>
+                  )}
                 </div>
 
                 <div>
@@ -190,29 +255,28 @@ const SimulatorPage = () => {
                   <Input
                     id="valorEntrada"
                     type="text"
-                    placeholder="R$ 5.000"
+                    placeholder="R$ 5.000,00"
                     value={formData.valorEntrada}
-                    onChange={(e) =>
-                      setFormData({ ...formData, valorEntrada: e.target.value })
-                    }
+                    onChange={(e) => handleCurrencyChange("valorEntrada", e.target.value)}
                     className="mt-2"
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="rendaMensal" className="text-foreground">
-                    Renda Mensal
+                    Renda Mensal *
                   </Label>
                   <Input
                     id="rendaMensal"
                     type="text"
-                    placeholder="R$ 3.000"
+                    placeholder="R$ 3.000,00"
                     value={formData.rendaMensal}
-                    onChange={(e) =>
-                      setFormData({ ...formData, rendaMensal: e.target.value })
-                    }
-                    className="mt-2"
+                    onChange={(e) => handleCurrencyChange("rendaMensal", e.target.value)}
+                    className={`mt-2 ${errors.rendaMensal ? "border-red-500" : ""}`}
                   />
+                  {errors.rendaMensal && (
+                    <p className="text-red-500 text-sm mt-1">{errors.rendaMensal}</p>
+                  )}
                 </div>
               </div>
 

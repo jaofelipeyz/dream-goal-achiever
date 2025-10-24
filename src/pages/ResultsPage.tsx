@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 const ResultsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const { type, valorDesejado, prazo } = location.state || {};
 
   const [contactData, setContactData] = useState({
@@ -16,6 +18,48 @@ const ResultsPage = () => {
     telefone: "",
     email: "",
   });
+
+  const [errors, setErrors] = useState({
+    nome: "",
+    telefone: "",
+    email: "",
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const numbers = phone.replace(/\D/g, "");
+    return numbers.length >= 10;
+  };
+
+  const validateContact = () => {
+    const newErrors = {
+      nome: "",
+      telefone: "",
+      email: "",
+    };
+
+    if (!contactData.nome || contactData.nome.length < 3) {
+      newErrors.nome = "Nome deve ter pelo menos 3 caracteres";
+    }
+
+    if (!contactData.telefone || !validatePhone(contactData.telefone)) {
+      newErrors.telefone = "Telefone inválido (mínimo 10 dígitos)";
+    }
+
+    if (!contactData.email || !validateEmail(contactData.email)) {
+      newErrors.email = "E-mail inválido";
+    }
+
+    setErrors(newErrors);
+    return !newErrors.nome && !newErrors.telefone && !newErrors.email;
+  };
 
   // Cálculos simplificados
   const valor = parseFloat(valorDesejado?.replace(/[^0-9]/g, "") || "50000");
@@ -30,6 +74,15 @@ const ResultsPage = () => {
   const economia = totalFinanciamento - totalConsorcio;
 
   const handleContact = () => {
+    if (!validateContact()) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos corretamente.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const message = `Olá! Vi os resultados da simulação de *${type}*:\n\n` +
       `💰 Valor: R$ ${valorDesejado}\n` +
       `📅 Prazo: ${prazo} meses\n` +
@@ -42,6 +95,11 @@ const ResultsPage = () => {
       `Gostaria de falar com um especialista!`;
     
     window.open(`https://wa.me/5541984190707?text=${encodeURIComponent(message)}`, '_blank');
+    
+    toast({
+      title: "Redirecionando...",
+      description: "Você será direcionado para o WhatsApp em instantes.",
+    });
   };
 
   return (
@@ -134,30 +192,53 @@ const ResultsPage = () => {
               </h2>
 
               <div className="space-y-4">
-                <Input
-                  type="text"
-                  placeholder="Seu nome completo"
-                  value={contactData.nome}
-                  onChange={(e) =>
-                    setContactData({ ...contactData, nome: e.target.value })
-                  }
-                />
-                <Input
-                  type="tel"
-                  placeholder="(41) 99999-9999"
-                  value={contactData.telefone}
-                  onChange={(e) =>
-                    setContactData({ ...contactData, telefone: e.target.value })
-                  }
-                />
-                <Input
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={contactData.email}
-                  onChange={(e) =>
-                    setContactData({ ...contactData, email: e.target.value })
-                  }
-                />
+                <div>
+                  <Input
+                    type="text"
+                    placeholder="Seu nome completo *"
+                    value={contactData.nome}
+                    onChange={(e) => {
+                      setContactData({ ...contactData, nome: e.target.value });
+                      if (errors.nome) setErrors({ ...errors, nome: "" });
+                    }}
+                    className={errors.nome ? "border-red-500" : ""}
+                  />
+                  {errors.nome && (
+                    <p className="text-red-500 text-sm mt-1">{errors.nome}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <Input
+                    type="tel"
+                    placeholder="(41) 99999-9999 *"
+                    value={contactData.telefone}
+                    onChange={(e) => {
+                      setContactData({ ...contactData, telefone: e.target.value });
+                      if (errors.telefone) setErrors({ ...errors, telefone: "" });
+                    }}
+                    className={errors.telefone ? "border-red-500" : ""}
+                  />
+                  {errors.telefone && (
+                    <p className="text-red-500 text-sm mt-1">{errors.telefone}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <Input
+                    type="email"
+                    placeholder="seu@email.com *"
+                    value={contactData.email}
+                    onChange={(e) => {
+                      setContactData({ ...contactData, email: e.target.value });
+                      if (errors.email) setErrors({ ...errors, email: "" });
+                    }}
+                    className={errors.email ? "border-red-500" : ""}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -218,7 +299,6 @@ const ResultsPage = () => {
             <Button
               onClick={handleContact}
               className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-              disabled={!contactData.nome || !contactData.telefone || !contactData.email}
             >
               <i className="ri-user-star-line mr-2"></i>
               Falar com Especialista

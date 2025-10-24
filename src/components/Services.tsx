@@ -60,17 +60,17 @@ const Services = () => {
     <section id="servicos" className="py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block bg-accent rounded-full px-6 py-2 mb-4">
+          <div className="inline-block bg-accent rounded-full px-6 py-2 mb-4 animate-fade-in">
             <span className="text-accent-foreground font-semibold text-sm">
-              Nossos Serviços
+              💼 Soluções Completas
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Soluções Completas em <span className="text-primary">Consórcios</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
+            Seu Parceiro em <span className="text-gradient">Conquistas</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos as melhores opções de consórcio e produtos financeiros com
-            atendimento consultivo e estratégias personalizadas
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            Trabalhamos com atendimento 100% consultivo, analisando seu perfil para encontrar 
+            a solução perfeita. Cada cliente recebe estratégias personalizadas.
           </p>
         </div>
 
@@ -78,7 +78,8 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 group cursor-pointer"
+              className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary/50 group cursor-pointer hover-lift animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <i className={`${service.icon} text-3xl text-white`}></i>

@@ -49,16 +49,16 @@ const Testimonials = () => {
     <section id="depoimentos" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="inline-block bg-accent rounded-full px-6 py-2 mb-4">
+          <div className="inline-block bg-accent rounded-full px-6 py-2 mb-4 animate-fade-in">
             <span className="text-accent-foreground font-semibold text-sm">
-              Depoimentos
+              ⭐ Depoimentos Reais
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Histórias de <span className="text-primary">Sucesso</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 animate-fade-in-up">
+            Histórias de <span className="text-gradient">Conquistas</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Veja o que nossos clientes têm a dizer sobre suas conquistas
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            Clientes reais que confiaram em nosso atendimento consultivo e realizaram seus sonhos
           </p>
         </div>
 
@@ -66,7 +66,8 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-muted/30 to-background rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-border"
+              className="bg-gradient-to-br from-muted/30 to-background rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-border hover:border-primary/50 hover-lift animate-scale-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-4 mb-6">
                 <img

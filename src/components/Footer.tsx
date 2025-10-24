@@ -139,6 +139,19 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col items-center gap-6 mb-6">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+              <div className="flex items-center gap-2">
+                <i className="ri-bank-line text-primary"></i>
+                <span>Autorizado pelo Banco Central</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <i className="ri-shield-check-line text-primary"></i>
+                <span>Representante Autorizada Multimarcas</span>
+              </div>
+            </div>
+          </div>
+          
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
               © 2024 Connecta Investimento. Todos os direitos reservados.

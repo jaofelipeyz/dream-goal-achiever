@@ -63,6 +63,18 @@ const consortiumTypes = [
 ];
 
 const Simulator = () => {
+  const handleSimulation = (type: string) => {
+    const messages = {
+      "Veículos Leves": "Olá! Gostaria de simular um consórcio de *Veículos Leves* (carros, motos e utilitários). Podem me ajudar?",
+      "Imóveis": "Olá! Gostaria de simular um consórcio *Imobiliário* (casas, apartamentos e terrenos). Podem me ajudar?",
+      "Serviços": "Olá! Gostaria de simular um consórcio de *Serviços* (reformas, viagens e eventos). Podem me ajudar?",
+      "Veículos Pesados": "Olá! Gostaria de simular um consórcio de *Veículos Pesados* (caminhões, máquinas e equipamentos). Podem me ajudar?"
+    };
+    
+    const message = encodeURIComponent(messages[type as keyof typeof messages] || "Olá! Gostaria de fazer uma simulação de consórcio.");
+    window.open(`https://wa.me/5541984190707?text=${message}`, '_blank');
+  };
+
   return (
     <section id="simulador" className="py-24 bg-gradient-to-b from-muted/20 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +146,10 @@ const Simulator = () => {
                     ))}
                   </ul>
 
-                  <button className="w-full mt-4 bg-primary text-primary-foreground py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold">
+                  <button 
+                    onClick={() => handleSimulation(type.title)}
+                    className="w-full mt-4 bg-primary text-primary-foreground py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+                  >
                     Simular Agora
                   </button>
                 </div>

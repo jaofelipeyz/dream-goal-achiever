@@ -91,14 +91,15 @@ const SimulatorPage = () => {
   });
 
   const handleSubmit = () => {
-    const message = `Olá! Gostaria de fazer uma simulação de consórcio de *${type}*:\n\n` +
-      `💰 Valor Desejado: R$ ${formData.valorDesejado}\n` +
-      `📅 Prazo: ${formData.prazo} meses\n` +
-      `💵 Entrada: R$ ${formData.valorEntrada || "0"}\n` +
-      `📊 Renda Mensal: R$ ${formData.rendaMensal}\n\n` +
-      `Podem me ajudar com mais detalhes?`;
-    
-    window.open(`https://wa.me/5541984190707?text=${encodeURIComponent(message)}`, '_blank');
+    navigate("/resultados", {
+      state: {
+        type,
+        valorDesejado: formData.valorDesejado,
+        prazo: formData.prazo,
+        valorEntrada: formData.valorEntrada,
+        rendaMensal: formData.rendaMensal,
+      },
+    });
   };
 
   return (

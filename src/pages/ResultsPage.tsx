@@ -11,7 +11,7 @@ const ResultsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { type, valorDesejado, prazo } = location.state || {};
+  const { type, valorDesejado, prazo, valorEntrada, rendaMensal } = location.state || {};
 
   const [contactData, setContactData] = useState({
     nome: "",
@@ -93,17 +93,22 @@ const ResultsPage = () => {
       return;
     }
 
-    const message = `Olá! Vi os resultados da simulação de *${type}*:\n\n` +
-      `💰 Valor: R$ ${valorDesejado}\n` +
-      `📅 Prazo: ${prazo} meses\n` +
-      `💵 Parcela Consórcio: R$ ${parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n` +
-      `💸 Parcela Financiamento: R$ ${parcelaFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n` +
-      `✅ Economia: R$ ${economia.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${percentualEconomia.toFixed(1)}%)\n\n` +
-      `*Meus dados:*\n` +
-      `Nome: ${contactData.nome}\n` +
-      `Telefone: ${contactData.telefone}\n` +
-      `Email: ${contactData.email}\n\n` +
-      `Gostaria de falar com um especialista!`;
+    const message = `📩 Novo Lead — Simulação de (Connecta)\n\n` +
+      `🏠 Tipo de bem: ${type || 'Não informado'}\n` +
+      `💰 Valor do bem: R$ ${valorDesejado || 'Não informado'}\n` +
+      `📅 Prazo desejado: ${prazo ? `${prazo} meses` : 'Não informado'}\n` +
+      `💵 Entrada disponível: ${valorEntrada || 'Não informada'}\n` +
+      `👔 Renda mensal: ${rendaMensal || 'Não informada'}\n\n` +
+      `Comparativo de condições:\n\n` +
+      `Parcela Consórcio: R$ ${parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n\n` +
+      `Parcela Financiamento: R$ ${parcelaFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n\n` +
+      `💸 Economia estimada: R$ ${economia.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${percentualEconomia.toFixed(1)}%)\n\n\n` +
+      `🧍Dados do cliente:\n\n` +
+      `Nome: ${contactData.nome}\n\n` +
+      `Telefone: ${contactData.telefone}\n\n` +
+      `E-mail: ${contactData.email}\n\n\n` +
+      `🗣️ Observação:\n` +
+      `O cliente demonstrou interesse em falar com um especialista para entender melhor as condições e dar andamento à simulação`;
     
     window.open(`https://wa.me/5541984190707?text=${encodeURIComponent(message)}`, '_blank');
     

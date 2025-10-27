@@ -66,10 +66,10 @@ const ResultsPage = () => {
   const meses = parseInt(prazo || "60");
   
   // Cálculo Consórcio
-  // Taxa administrativa: 18% do crédito total dividido pelo prazo
-  // Fundo de reserva: 2% do crédito total dividido pelo prazo
-  const taxaAdmin = (valor * 0.18) / meses;
-  const fundoReserva = (valor * 0.02) / meses;
+  // Taxa administrativa: 20% do crédito total dividido pelo prazo
+  // Fundo de reserva: 4% do crédito total dividido pelo prazo
+  const taxaAdmin = (valor * 0.20) / meses;
+  const fundoReserva = (valor * 0.04) / meses;
   const parcelaBase = valor / meses;
   const parcelaConsorcio = parcelaBase + taxaAdmin + fundoReserva;
   const totalConsorcio = parcelaConsorcio * meses;
@@ -159,7 +159,7 @@ const ResultsPage = () => {
                 </div>
                 <div className="pt-2 text-center">
                   <span className="text-xs text-green-600 font-medium">
-                    Taxa administrativa: 18% | Fundo de reserva: 2%
+                    Taxa administrativa: 20% | Fundo de reserva: 4%
                   </span>
                 </div>
               </div>

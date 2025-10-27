@@ -61,17 +61,27 @@ const ResultsPage = () => {
     return !newErrors.nome && !newErrors.telefone && !newErrors.email;
   };
 
-  // Cálculos simplificados
-  const valor = parseFloat(valorDesejado?.replace(/[^0-9]/g, "") || "50000");
+  // Cálculos corrigidos
+  const valor = parseFloat(valorDesejado?.replace(/[^0-9]/g, "") || "50000") / 100;
   const meses = parseInt(prazo || "60");
   
-  const parcelaConsorcio = (valor / meses) * 1.02; // 2% taxa administrativa
+  // Cálculo Consórcio
+  // Taxa administrativa: 18% do crédito total dividido pelo prazo
+  // Fundo de reserva: 2% do crédito total dividido pelo prazo
+  const taxaAdmin = (valor * 0.18) / meses;
+  const fundoReserva = (valor * 0.02) / meses;
+  const parcelaBase = valor / meses;
+  const parcelaConsorcio = parcelaBase + taxaAdmin + fundoReserva;
   const totalConsorcio = parcelaConsorcio * meses;
   
-  const parcelaFinanciamento = (valor / meses) * 1.4; // 40% de juros
+  // Cálculo Financiamento (Tabela Price)
+  // Taxa de juros mensal: 1.99% ao mês (aproximadamente 26% ao ano)
+  const taxaJurosMensal = 0.0199;
+  const parcelaFinanciamento = valor * (taxaJurosMensal * Math.pow(1 + taxaJurosMensal, meses)) / (Math.pow(1 + taxaJurosMensal, meses) - 1);
   const totalFinanciamento = parcelaFinanciamento * meses;
   
   const economia = totalFinanciamento - totalConsorcio;
+  const percentualEconomia = ((economia / totalFinanciamento) * 100);
 
   const handleContact = () => {
     if (!validateContact()) {
@@ -86,8 +96,9 @@ const ResultsPage = () => {
     const message = `Olá! Vi os resultados da simulação de *${type}*:\n\n` +
       `💰 Valor: R$ ${valorDesejado}\n` +
       `📅 Prazo: ${prazo} meses\n` +
-      `💵 Parcela Consórcio: R$ ${parcelaConsorcio.toFixed(2)}\n` +
-      `✅ Economia: R$ ${economia.toFixed(2)}\n\n` +
+      `💵 Parcela Consórcio: R$ ${parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n` +
+      `💸 Parcela Financiamento: R$ ${parcelaFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n` +
+      `✅ Economia: R$ ${economia.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${percentualEconomia.toFixed(1)}%)\n\n` +
       `*Meus dados:*\n` +
       `Nome: ${contactData.nome}\n` +
       `Telefone: ${contactData.telefone}\n` +
@@ -137,13 +148,18 @@ const ResultsPage = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-green-700 font-medium">Parcela mensal:</span>
                   <span className="text-2xl font-bold text-green-600">
-                    R$ {parcelaConsorcio.toFixed(2)}
+                    R$ {parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-green-200">
                   <span className="text-green-700 font-medium">Total a pagar:</span>
                   <span className="text-xl font-bold text-green-600">
-                    R$ {totalConsorcio.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                    R$ {totalConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className="pt-2 text-center">
+                  <span className="text-xs text-green-600 font-medium">
+                    Taxa administrativa: 18% | Fundo de reserva: 2%
                   </span>
                 </div>
               </div>
@@ -161,13 +177,18 @@ const ResultsPage = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-red-700 font-medium">Parcela mensal:</span>
                   <span className="text-2xl font-bold text-red-600">
-                    R$ {parcelaFinanciamento.toFixed(2)}
+                    R$ {parcelaFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-red-200">
                   <span className="text-red-700 font-medium">Total a pagar:</span>
                   <span className="text-xl font-bold text-red-600">
-                    R$ {totalFinanciamento.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                    R$ {totalFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                </div>
+                <div className="pt-2 text-center">
+                  <span className="text-xs text-red-600 font-medium">
+                    Taxa de juros: 1,99% ao mês (Tabela Price)
                   </span>
                 </div>
               </div>
@@ -177,9 +198,12 @@ const ResultsPage = () => {
           {/* Economia */}
           <div className="bg-primary rounded-2xl p-6 text-center mb-8">
             <p className="text-primary-foreground text-2xl md:text-3xl font-bold mb-2">
-              Você economiza R$ {economia.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+              Você economiza R$ {economia.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
             </p>
-            <p className="text-primary-foreground/90 text-sm md:text-base">
+            <p className="text-primary-foreground/90 text-lg font-semibold mb-1">
+              Isso representa {percentualEconomia.toFixed(1)}% de economia!
+            </p>
+            <p className="text-primary-foreground/80 text-sm md:text-base">
               Escolhendo o consórcio ao invés do financiamento bancário
             </p>
           </div>

@@ -62,7 +62,7 @@ const Differentials = () => {
               key={index}
               className="bg-card rounded-xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-border group cursor-pointer"
             >
-              <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+              <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary transition-colors" aria-hidden="true">
                 <i
                   className={`${item.icon} text-3xl text-accent-foreground group-hover:text-white transition-colors`}
                 ></i>

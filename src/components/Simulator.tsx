@@ -102,12 +102,13 @@ const Simulator = () => {
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    alt={type.title}
+                    alt={`Consórcio de ${type.title}`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     src={type.image}
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="absolute top-4 left-4 w-12 h-12 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-float">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
+                  <div className="absolute top-4 left-4 w-12 h-12 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-float" aria-hidden="true">
                     <i className={`${type.icon} text-2xl text-white`}></i>
                   </div>
                 </div>
@@ -136,7 +137,7 @@ const Simulator = () => {
                         className="flex items-center gap-2 text-foreground text-sm"
                       >
                         <div className="w-4 h-4 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
-                          <i className="ri-check-line text-accent-foreground text-xs"></i>
+                          <i className="ri-check-line text-accent-foreground text-xs" aria-hidden="true"></i>
                         </div>
                         <span>{feature}</span>
                       </li>
@@ -146,10 +147,11 @@ const Simulator = () => {
                   <button 
                     onClick={() => handleSimulation(type.title)}
                     className="w-full mt-4 bg-primary text-primary-foreground py-3 rounded-lg hover:bg-primary/90 transition-all font-semibold hover:shadow-lg hover:-translate-y-0.5 group/btn"
+                    aria-label={`Simular consórcio de ${type.title}`}
                   >
                     <span className="flex items-center justify-center gap-2">
                       Simular Agora
-                      <i className="ri-arrow-right-line group-hover/btn:translate-x-1 transition-transform"></i>
+                      <i className="ri-arrow-right-line group-hover/btn:translate-x-1 transition-transform" aria-hidden="true"></i>
                     </span>
                   </button>
                 </div>

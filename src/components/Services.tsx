@@ -82,7 +82,7 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-16 h-16 gradient-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <i className={`${service.icon} text-3xl text-white`}></i>
+                <i className={`${service.icon} text-3xl text-white`} aria-hidden="true"></i>
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                 {service.title}
@@ -94,7 +94,7 @@ const Services = () => {
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-foreground">
                     <div className="w-5 h-5 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
-                      <i className="ri-check-line text-accent-foreground text-sm"></i>
+                      <i className="ri-check-line text-accent-foreground text-sm" aria-hidden="true"></i>
                     </div>
                     <span className="font-medium">{feature}</span>
                   </li>
@@ -110,8 +110,9 @@ const Services = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-lg shadow-glow"
+            aria-label="Falar com especialista pelo WhatsApp"
           >
-            <i className="ri-whatsapp-line text-2xl"></i>
+            <i className="ri-whatsapp-line text-2xl" aria-hidden="true"></i>
             Falar com Especialista
           </a>
         </div>

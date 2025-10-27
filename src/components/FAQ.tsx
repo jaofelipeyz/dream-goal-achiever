@@ -84,8 +84,9 @@ const FAQ = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-semibold text-lg shadow-glow hover:shadow-2xl hover:-translate-y-1 group"
+            aria-label="Falar com especialista pelo WhatsApp"
           >
-            <i className="ri-whatsapp-line text-2xl group-hover:scale-110 transition-transform"></i>
+            <i className="ri-whatsapp-line text-2xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
             Falar com Especialista
           </a>
         </div>
@@ -94,7 +95,7 @@ const FAQ = () => {
         <div className="mt-16 pt-16 border-t border-border">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <i className="ri-bank-line text-3xl text-primary"></i>
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">
@@ -106,7 +107,7 @@ const FAQ = () => {
             </div>
 
             <div className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <i className="ri-shield-check-line text-3xl text-primary"></i>
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">

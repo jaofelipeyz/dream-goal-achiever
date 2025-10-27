@@ -26,34 +26,39 @@ const Header = () => {
             </div>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
             <button
               onClick={() => scrollToSection("inicio")}
               className="text-foreground hover:text-primary transition-colors font-medium"
+              aria-label="Ir para seção Início"
             >
               Início
             </button>
             <button
               onClick={() => scrollToSection("servicos")}
               className="text-foreground hover:text-primary transition-colors font-medium"
+              aria-label="Ir para seção Serviços"
             >
               Serviços
             </button>
             <button
               onClick={() => scrollToSection("simulador")}
               className="text-foreground hover:text-primary transition-colors font-medium"
+              aria-label="Ir para simulador de consórcio"
             >
               Simulador
             </button>
             <button
               onClick={() => scrollToSection("depoimentos")}
               className="text-foreground hover:text-primary transition-colors font-medium"
+              aria-label="Ir para depoimentos de clientes"
             >
               Depoimentos
             </button>
             <button
               onClick={() => scrollToSection("contato")}
               className="text-foreground hover:text-primary transition-colors font-medium"
+              aria-label="Ir para seção de contato"
             >
               Contato
             </button>
@@ -62,8 +67,9 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold flex items-center gap-2"
+              aria-label="Falar conosco pelo WhatsApp"
             >
-              <i className="ri-whatsapp-line text-xl"></i>
+              <i className="ri-whatsapp-line text-xl" aria-hidden="true"></i>
               Fale Conosco
             </a>
           </nav>
@@ -71,44 +77,61 @@ const Header = () => {
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
           >
-            <i className="ri-menu-line text-2xl"></i>
+            <i className={`text-2xl ${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'}`} aria-hidden="true"></i>
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
+          <nav className="md:hidden py-4 space-y-4 animate-fade-in" aria-label="Menu mobile">
             <button
               onClick={() => scrollToSection("inicio")}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium"
+              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              aria-label="Ir para seção Início"
             >
               Início
             </button>
             <button
               onClick={() => scrollToSection("servicos")}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium"
+              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              aria-label="Ir para seção Serviços"
             >
               Serviços
             </button>
             <button
               onClick={() => scrollToSection("simulador")}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium"
+              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              aria-label="Ir para simulador de consórcio"
             >
               Simulador
             </button>
             <button
               onClick={() => scrollToSection("depoimentos")}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium"
+              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              aria-label="Ir para depoimentos de clientes"
             >
               Depoimentos
             </button>
             <button
               onClick={() => scrollToSection("contato")}
-              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium"
+              className="block w-full text-left text-foreground hover:text-primary transition-colors font-medium py-2"
+              aria-label="Ir para seção de contato"
             >
               Contato
             </button>
-          </div>
+            <a
+              href="https://wa.me/5541984190707"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold text-center mt-4"
+              aria-label="Falar conosco pelo WhatsApp"
+            >
+              <i className="ri-whatsapp-line mr-2" aria-hidden="true"></i>
+              Fale Conosco
+            </a>
+          </nav>
         )}
       </div>
     </header>

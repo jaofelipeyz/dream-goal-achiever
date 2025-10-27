@@ -45,29 +45,31 @@ const CTA = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-bold text-lg flex items-center justify-center gap-2 shadow-glow"
+                  aria-label="Falar com consultor pelo WhatsApp"
                 >
-                  <i className="ri-whatsapp-line text-2xl"></i>
+                  <i className="ri-whatsapp-line text-2xl" aria-hidden="true"></i>
                   Falar com Consultor
                 </a>
                 <button
                   onClick={scrollToSimulator}
                   className="bg-white text-gray-900 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-bold text-lg flex items-center justify-center gap-2"
+                  aria-label="Ir para o simulador"
                 >
-                  <i className="ri-calculator-line text-xl"></i>
+                  <i className="ri-calculator-line text-xl" aria-hidden="true"></i>
                   Fazer Simulação
                 </button>
               </div>
 
-              <div className="grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/20">
-                <div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-12 pt-12 border-t border-white/20">
+                <div className="text-center sm:text-left">
                   <div className="text-3xl font-bold text-primary mb-2">100%</div>
                   <div className="text-gray-300 font-medium">Transparente</div>
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <div className="text-3xl font-bold text-primary mb-2">0%</div>
                   <div className="text-gray-300 font-medium">Juros</div>
                 </div>
-                <div>
+                <div className="text-center sm:text-left">
                   <div className="text-3xl font-bold text-primary mb-2">24/7</div>
                   <div className="text-gray-300 font-medium">Suporte</div>
                 </div>

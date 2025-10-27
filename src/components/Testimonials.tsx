@@ -71,9 +71,10 @@ const Testimonials = () => {
             >
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  alt={testimonial.name}
+                  alt={`Foto de ${testimonial.name}`}
                   className="w-16 h-16 rounded-full object-cover border-2 border-primary"
                   src={testimonial.image}
+                  loading="lazy"
                 />
                 <div>
                   <h4 className="font-bold text-foreground text-lg">
@@ -85,9 +86,9 @@ const Testimonials = () => {
                 </div>
               </div>
 
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-4" aria-label="Avaliação 5 estrelas">
                 {[...Array(5)].map((_, i) => (
-                  <i key={i} className="ri-star-fill text-primary text-lg"></i>
+                  <i key={i} className="ri-star-fill text-primary text-lg" aria-hidden="true"></i>
                 ))}
               </div>
 
@@ -111,8 +112,9 @@ const Testimonials = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-white text-primary px-8 py-4 rounded-lg hover:bg-gray-100 transition-colors font-bold text-lg shadow-lg"
+            aria-label="Começar agora pelo WhatsApp"
           >
-            <i className="ri-whatsapp-line text-2xl"></i>
+            <i className="ri-whatsapp-line text-2xl" aria-hidden="true"></i>
             Começar Agora
           </a>
         </div>

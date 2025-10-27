@@ -30,24 +30,27 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+                aria-label="WhatsApp da Connecta Investimento"
               >
-                <i className="ri-whatsapp-line text-xl"></i>
+                <i className="ri-whatsapp-line text-xl" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.instagram.com/connectainvestimento"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+                aria-label="Instagram da Connecta Investimento"
               >
-                <i className="ri-instagram-line text-xl"></i>
+                <i className="ri-instagram-line text-xl" aria-hidden="true"></i>
               </a>
               <a
                 href="https://www.facebook.com/connectainvestimento"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors"
+                aria-label="Facebook da Connecta Investimento"
               >
-                <i className="ri-facebook-fill text-xl"></i>
+                <i className="ri-facebook-fill text-xl" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -113,11 +116,11 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6">Contato</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <i className="ri-map-pin-line text-primary text-xl flex-shrink-0 mt-1"></i>
+                <i className="ri-map-pin-line text-primary text-xl flex-shrink-0 mt-1" aria-hidden="true"></i>
                 <span className="text-gray-400">Marechal Deodoro, 220</span>
               </li>
               <li className="flex items-start gap-3">
-                <i className="ri-phone-line text-primary text-xl flex-shrink-0 mt-1"></i>
+                <i className="ri-phone-line text-primary text-xl flex-shrink-0 mt-1" aria-hidden="true"></i>
                 <a
                   href="tel:+5541984190707"
                   className="text-gray-400 hover:text-primary transition-colors"
@@ -126,7 +129,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <i className="ri-mail-line text-primary text-xl flex-shrink-0 mt-1"></i>
+                <i className="ri-mail-line text-primary text-xl flex-shrink-0 mt-1" aria-hidden="true"></i>
                 <a
                   href="mailto:connectainvestimento@gmail.com"
                   className="text-gray-400 hover:text-primary transition-colors break-all"
@@ -142,11 +145,11 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-6 mb-6">
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
-                <i className="ri-bank-line text-primary"></i>
+                <i className="ri-bank-line text-primary" aria-hidden="true"></i>
                 <span>Autorizado pelo Banco Central</span>
               </div>
               <div className="flex items-center gap-2">
-                <i className="ri-shield-check-line text-primary"></i>
+                <i className="ri-shield-check-line text-primary" aria-hidden="true"></i>
                 <span>Representante Autorizada Multimarcas</span>
               </div>
             </div>

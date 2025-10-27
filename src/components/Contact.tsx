@@ -28,39 +28,46 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center" aria-hidden="true">
                     <i className="ri-whatsapp-line text-2xl text-accent-foreground"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">WhatsApp</h4>
-                    <p className="text-muted-foreground">(41) 98419-0707</p>
+                    <a href="tel:+5541984190707" className="text-muted-foreground hover:text-primary transition-colors">
+                      (41) 98419-0707
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center" aria-hidden="true">
                     <i className="ri-phone-line text-2xl text-accent-foreground"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Telefone</h4>
-                    <p className="text-muted-foreground">(41) 3333-4444</p>
+                    <a href="tel:+554133334444" className="text-muted-foreground hover:text-primary transition-colors">
+                      (41) 3333-4444
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center" aria-hidden="true">
                     <i className="ri-mail-line text-2xl text-accent-foreground"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">E-mail</h4>
-                    <p className="text-muted-foreground break-all">
+                    <a 
+                      href="mailto:connectainvestimento@gmail.com" 
+                      className="text-muted-foreground hover:text-primary transition-colors break-all"
+                    >
                       connectainvestimento@gmail.com
-                    </p>
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center" aria-hidden="true">
                     <i className="ri-time-line text-2xl text-accent-foreground"></i>
                   </div>
                   <div>
@@ -79,8 +86,9 @@ const Contact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-colors font-bold text-lg flex items-center justify-center gap-2"
+                  aria-label="Conversar no WhatsApp"
                 >
-                  <i className="ri-whatsapp-line text-2xl"></i>
+                  <i className="ri-whatsapp-line text-2xl" aria-hidden="true"></i>
                   Conversar no WhatsApp
                 </a>
               </div>
@@ -89,11 +97,12 @@ const Contact = () => {
 
           <div className="relative">
             <img
-              alt="Equipe de atendimento Connecta"
+              alt="Equipe de atendimento Connecta Investimento"
               className="w-full h-96 object-cover rounded-2xl shadow-lg"
               src={contactImage}
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" aria-hidden="true"></div>
           </div>
         </div>
       </div>

@@ -27,14 +27,14 @@ const ScrollToTop = () => {
   return (
     <>
       {isVisible && (
-        <Button
-          onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all animate-scale-in"
-          size="icon"
-          aria-label="Voltar ao topo"
-        >
-          <i className="ri-arrow-up-line text-xl"></i>
-        </Button>
+          <Button
+            onClick={scrollToTop}
+            className="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all animate-scale-in"
+            size="icon"
+            aria-label="Voltar ao topo da página"
+          >
+            <i className="ri-arrow-up-line text-xl" aria-hidden="true"></i>
+          </Button>
       )}
     </>
   );

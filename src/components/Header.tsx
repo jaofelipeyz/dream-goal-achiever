@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.jpg";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +19,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
-                <i className="ri-line-chart-line text-white text-xl"></i>
-              </div>
+              <img src={logo} alt="Connecta Investimento Logo" className="w-10 h-10 object-contain" />
               <span className="text-2xl font-bold text-foreground">
                 Connecta <span className="text-primary">Investimento</span>
               </span>

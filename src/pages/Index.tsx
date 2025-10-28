@@ -10,10 +10,12 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
+import RemoveFloatingElements from "@/components/RemoveFloatingElements";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <RemoveFloatingElements />
       <Header />
       <Hero />
       <Services />

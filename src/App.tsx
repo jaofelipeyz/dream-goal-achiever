@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import SimulatorPage from "./pages/SimulatorPage";
 import ResultsPage from "./pages/ResultsPage";
 import NotFound from "./pages/NotFound";
+import RemoveFloatingElements from "./components/RemoveFloatingElements";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <RemoveFloatingElements />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

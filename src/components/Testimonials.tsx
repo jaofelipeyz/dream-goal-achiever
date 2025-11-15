@@ -4,6 +4,7 @@ import ana from "@/assets/testimonial-ana.jpg";
 import carlos from "@/assets/testimonial-carlos.jpg";
 import fernanda from "@/assets/testimonial-fernanda.jpg";
 import roberto from "@/assets/testimonial-roberto.jpg";
+import depoimentoVideo from "@/assets/depoimento-video.mov";
 
 const testimonials = [
   {
@@ -65,10 +66,15 @@ const Testimonials = () => {
         {/* Vídeo de Depoimento */}
         <div className="max-w-4xl mx-auto mb-16 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-            <blockquote className="imgur-embed-pub" lang="en" data-id="a/GnirSnD">
-              <a href="https://imgur.com/a/GnirSnD">Depoimento Cliente</a>
-            </blockquote>
-            <script async src="//s.imgur.com/min/embed.js" charSet="utf-8"></script>
+            <video
+              className="w-full aspect-video"
+              controls
+              preload="metadata"
+              aria-label="Vídeo de depoimento de cliente"
+            >
+              <source src={depoimentoVideo} type="video/mp4" />
+              Seu navegador não suporta a reprodução de vídeos.
+            </video>
           </div>
         </div>
 

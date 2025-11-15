@@ -65,13 +65,10 @@ const Testimonials = () => {
         {/* Vídeo de Depoimento */}
         <div className="max-w-4xl mx-auto mb-16 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
-            <iframe
-              className="w-full aspect-video rounded-lg"
-              src="https://imgur.com/GnirSnD/embed"
-              frameBorder="0"
-              allowFullScreen
-              aria-label="Vídeo de depoimento de cliente"
-            />
+            <blockquote className="imgur-embed-pub" lang="en" data-id="a/GnirSnD">
+              <a href="https://imgur.com/a/GnirSnD">Depoimento Cliente</a>
+            </blockquote>
+            <script async src="//s.imgur.com/min/embed.js" charSet="utf-8"></script>
           </div>
         </div>
 

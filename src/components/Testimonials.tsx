@@ -62,6 +62,21 @@ const Testimonials = () => {
           </p>
         </div>
 
+        {/* Vídeo de Depoimento */}
+        <div className="max-w-4xl mx-auto mb-16 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border">
+            <video
+              className="w-full aspect-video"
+              controls
+              preload="metadata"
+              aria-label="Vídeo de depoimento de cliente"
+            >
+              <source src="https://i.imgur.com/GnirSnD.mp4" type="video/mp4" />
+              Seu navegador não suporta a reprodução de vídeos.
+            </video>
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div

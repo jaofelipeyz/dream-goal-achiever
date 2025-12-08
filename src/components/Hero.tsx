@@ -1,4 +1,5 @@
 import heroImage from "@/assets/hero-bg.jpg";
+import { WordPullUp } from "@/components/ui/word-pull-up";
 
 const Hero = () => {
   const scrollToSimulator = () => {
@@ -28,10 +29,10 @@ const Hero = () => {
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
-            Realize Seus <span className="text-gradient">Objetivos</span> com
-            Consórcios Inteligentes
-          </h1>
+          <WordPullUp
+            words="Realize Seus Objetivos com Consórcios Inteligentes"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight text-left"
+          />
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
             Atendimento consultivo exclusivo com estratégias personalizadas para sua contemplação. 

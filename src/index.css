@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Mountains+of+Christmas:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 🎄 CHRISTMAS THEME 🎄
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
@@ -14,110 +14,95 @@ All colors MUST be HSL.
   }
   
   :root {
-    /* Christmas White/Snow Background */
-    --background: 0 0% 98%;
-    --foreground: 150 60% 12%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 150 60% 12%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 60% 12%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    /* Christmas Red as Primary */
-    --primary: 0 80% 45%;
+    --primary: 24 95% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 0 80% 38%;
+    --primary-hover: 24 95% 45%;
 
-    /* Christmas Green as Secondary */
-    --secondary: 145 63% 32%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Soft pine green muted */
-    --muted: 145 30% 92%;
-    --muted-foreground: 145 30% 35%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Christmas Gold as Accent */
-    --accent: 43 96% 56%;
-    --accent-foreground: 43 96% 20%;
+    --accent: 24 100% 95%;
+    --accent-foreground: 24 95% 53%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 145 20% 85%;
-    --input: 145 20% 90%;
-    --ring: 0 80% 45%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 24 95% 53%;
 
     --radius: 0.75rem;
     
-    /* Christmas gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 80% 45%), hsl(0 80% 38%));
-    --gradient-hero: linear-gradient(to right, hsl(150 60% 8% / 0.9), hsl(150 60% 8% / 0.8), hsl(150 60% 8% / 0.6));
-    --shadow-glow: 0 10px 40px -10px hsl(0 80% 45% / 0.4);
-    
-    /* Christmas special colors */
-    --christmas-gold: 43 96% 56%;
-    --christmas-green: 145 63% 32%;
-    --christmas-red: 0 80% 45%;
-    --snow: 0 0% 98%;
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%), hsl(24 95% 45%));
+    --gradient-hero: linear-gradient(to right, hsl(0 0% 0% / 0.85), hsl(0 0% 0% / 0.75), hsl(0 0% 0% / 0.6));
+    --shadow-glow: 0 10px 40px -10px hsl(24 95% 53% / 0.3);
 
-    --sidebar-background: 145 30% 96%;
-    --sidebar-foreground: 150 60% 12%;
-    --sidebar-primary: 0 80% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 145 63% 90%;
-    --sidebar-accent-foreground: 145 63% 25%;
-    --sidebar-border: 145 20% 88%;
-    --sidebar-ring: 0 80% 45%;
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Dark Christmas Theme - Cozy Winter Night */
-    --background: 150 40% 6%;
-    --foreground: 0 0% 95%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 150 35% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 150 35% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Bright Christmas Red */
-    --primary: 0 80% 50%;
+    --primary: 24 95% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 0 80% 58%;
+    --primary-hover: 24 95% 60%;
 
-    /* Deep Christmas Green */
-    --secondary: 145 50% 25%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 150 30% 15%;
-    --muted-foreground: 145 20% 65%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    /* Christmas Gold */
-    --accent: 43 96% 50%;
-    --accent-foreground: 43 96% 15%;
+    --accent: 24 95% 20%;
+    --accent-foreground: 24 95% 53%;
 
-    --destructive: 0 62.8% 40%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 150 30% 18%;
-    --input: 150 30% 18%;
-    --ring: 0 80% 50%;
-    
-    --christmas-gold: 43 96% 56%;
-    --christmas-green: 145 63% 40%;
-    --christmas-red: 0 80% 50%;
-    --snow: 0 0% 95%;
-    
-    --sidebar-background: 150 35% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 0 80% 50%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 24 95% 53%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 145 50% 18%;
-    --sidebar-accent-foreground: 145 50% 70%;
-    --sidebar-border: 150 30% 15%;
-    --sidebar-ring: 0 80% 50%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -161,19 +146,9 @@ All colors MUST be HSL.
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--christmas-red)) 0%, hsl(var(--christmas-gold)) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(24 100% 60%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-  
-  .christmas-title {
-    font-family: 'Mountains of Christmas', cursive;
-  }
-  
-  /* Snowfall effect */
-  .snowflake {
-    color: hsl(0 0% 100%);
-    text-shadow: 0 0 5px hsl(0 0% 100% / 0.8);
   }
 }

@@ -57,16 +57,6 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Christmas colors
-        christmas: {
-          red: "hsl(var(--christmas-red))",
-          green: "hsl(var(--christmas-green))",
-          gold: "hsl(var(--christmas-gold))",
-          snow: "hsl(var(--snow))",
-        },
-      },
-      fontFamily: {
-        christmas: ["Mountains of Christmas", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",

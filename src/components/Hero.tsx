@@ -30,7 +30,7 @@ const Hero = () => {
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
             Realize Seus <span className="text-orange-500">Objetivos</span> com
-            Consórcios Inteligentes
+            Créditos Inteligentes
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -42,10 +42,10 @@ const Hero = () => {
             <button
               onClick={scrollToSimulator}
               className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-glow hover:shadow-2xl hover:-translate-y-1 group"
-              aria-label="Abrir simulador de consórcio"
+              aria-label="Abrir simulador de crédito"
             >
               <i className="ri-calculator-line text-2xl group-hover:scale-110 transition-transform" aria-hidden="true"></i>
-              Simular Meu Consórcio
+              Simular Meu Crédito
             </button>
             <a
               href="https://wa.me/5541984190707"

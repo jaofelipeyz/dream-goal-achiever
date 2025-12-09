@@ -90,7 +90,7 @@ const Simulator = () => {
 
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl font-bold text-center text-foreground mb-8">
-            Escolha o tipo de consórcio ideal para você
+            Escolha o tipo de crédito ideal para você
           </h3>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -102,7 +102,7 @@ const Simulator = () => {
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
-                    alt={`Consórcio de ${type.title}`}
+                    alt={`Crédito de ${type.title}`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     src={type.image}
                     loading="lazy"

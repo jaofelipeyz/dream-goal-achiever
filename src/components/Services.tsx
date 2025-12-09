@@ -1,14 +1,14 @@
 const services = [
   {
     icon: "ri-car-line",
-    title: "Consórcio de Veículos",
+    title: "Crédito de Veículos",
     description:
       "Realize o sonho do carro próprio com as melhores condições e estratégias de contemplação.",
     features: ["Sem juros", "Parcelas fixas", "Alta chance de contemplação"],
   },
   {
     icon: "ri-home-4-line",
-    title: "Consórcio Imobiliário",
+    title: "Crédito Imobiliário",
     description:
       "Conquiste sua casa própria ou invista em imóveis com planejamento inteligente.",
     features: [
@@ -19,9 +19,9 @@ const services = [
   },
   {
     icon: "ri-shopping-bag-line",
-    title: "Consórcio de Serviços",
+    title: "Crédito de Serviços",
     description:
-      "Financie reformas, viagens, festas e muito mais com consórcio de serviços.",
+      "Financie reformas, viagens, festas e muito mais com crédito de serviços.",
     features: ["Múltiplas finalidades", "Sem burocracia", "Aprovação rápida"],
   },
   {

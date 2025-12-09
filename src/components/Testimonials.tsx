@@ -11,7 +11,7 @@ const testimonials = [
     name: "Maria Silva",
     role: "Contemplada em 8 meses",
     image: maria,
-    text: "Estava com o nome restrito e achei que nunca conseguiria comprar meu carro. A Connecta me mostrou que o consórcio era a solução perfeita! Fui contemplada em apenas 8 meses e realizei meu sonho.",
+    text: "Estava com o nome restrito e achei que nunca conseguiria comprar meu carro. A Connecta me mostrou que o crédito era a solução perfeita! Fui contemplada em apenas 8 meses e realizei meu sonho.",
   },
   {
     name: "João Santos",

@@ -100,7 +100,7 @@ const ResultsPage = () => {
       `💵 Entrada disponível: ${valorEntrada || 'Não informada'}\n` +
       `👔 Renda mensal: ${rendaMensal || 'Não informada'}\n\n` +
       `Comparativo de condições:\n\n` +
-      `Parcela Consórcio: R$ ${parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n\n` +
+      `Parcela Crédito: R$ ${parcelaConsorcio.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n\n` +
       `Parcela Financiamento: R$ ${parcelaFinanciamento.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}\n\n` +
       `💸 Economia estimada: R$ ${economia.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${percentualEconomia.toFixed(1)}%)\n\n\n` +
       `🧍Dados do cliente:\n\n` +
@@ -141,12 +141,12 @@ const ResultsPage = () => {
 
           {/* Comparação */}
           <div className="grid md:grid-cols-2 gap-6 mb-6">
-            {/* Consórcio Connecta */}
+            {/* Crédito Connecta */}
             <div className="bg-green-50 border-2 border-green-500 rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-4">
                 <i className="ri-shield-check-line text-green-600 text-2xl"></i>
                 <h3 className="text-xl font-bold text-green-700">
-                  Consórcio Connecta
+                  Crédito Connecta
                 </h3>
               </div>
               <div className="space-y-3">
@@ -209,7 +209,7 @@ const ResultsPage = () => {
               Isso representa {percentualEconomia.toFixed(1)}% de economia!
             </p>
             <p className="text-primary-foreground/80 text-sm md:text-base">
-              Escolhendo o consórcio ao invés do financiamento bancário
+              Escolhendo o crédito ao invés do financiamento bancário
             </p>
           </div>
 

@@ -300,7 +300,7 @@ const SimulatorPage = () => {
             {/* Vantagens */}
             <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
               <h2 className="text-2xl font-bold text-foreground mb-6">
-                Vantagens do Consórcio
+                Vantagens do Crédito
               </h2>
 
               <ul className="space-y-4 mb-6">

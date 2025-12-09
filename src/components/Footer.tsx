@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Referência em contemplações de consórcio. Ajudamos pessoas a
+              Referência em contemplações de crédito. Ajudamos pessoas a
               realizarem seus objetivos com atendimento consultivo e propostas que
               fazem sentido.
             </p>
@@ -104,9 +104,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold mb-6">Serviços</h3>
             <ul className="space-y-3">
-              <li className="text-gray-400">Consórcio de Veículos</li>
-              <li className="text-gray-400">Consórcio Imobiliário</li>
-              <li className="text-gray-400">Consórcio de Serviços</li>
+              <li className="text-gray-400">Crédito de Veículos</li>
+              <li className="text-gray-400">Crédito Imobiliário</li>
+              <li className="text-gray-400">Crédito de Serviços</li>
               <li className="text-gray-400">Produtos Financeiros</li>
               <li className="text-gray-400">Consultoria Especializada</li>
             </ul>

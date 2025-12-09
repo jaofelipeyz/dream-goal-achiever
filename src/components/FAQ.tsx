@@ -7,20 +7,20 @@ import {
 
 const faqs = [
   {
-    question: "O que é consórcio?",
-    answer: "Consórcio é uma modalidade de compra programada, onde você e outros participantes formam um grupo para adquirir bens (veículos, imóveis, serviços) sem pagar juros. Todos contribuem mensalmente e são contemplados por sorteio ou lance até que todos tenham recebido suas cartas de crédito.",
+    question: "O que é crédito?",
+    answer: "Crédito é uma modalidade de compra programada, onde você e outros participantes formam um grupo para adquirir bens (veículos, imóveis, serviços) sem pagar juros. Todos contribuem mensalmente e são contemplados por sorteio ou lance até que todos tenham recebido suas cartas de crédito.",
   },
   {
     question: "Como funciona a contemplação?",
     answer: "A contemplação pode acontecer de duas formas: por sorteio (realizado mensalmente pela administradora) ou por lance (quando você oferece um valor para antecipar sua contemplação). Nossa equipe consultiva te ajuda a escolher a melhor estratégia para seu perfil.",
   },
   {
-    question: "Quais são as vantagens do consórcio?",
-    answer: "O consórcio não tem juros, apenas taxa administrativa fixa. As parcelas são menores que financiamentos, você pode usar FGTS na contemplação (imóveis), não há IOF, e é uma forma mais econômica de realizar seus objetivos. Pode economizar até 40% comparado ao financiamento bancário.",
+    question: "Quais são as vantagens do crédito?",
+    answer: "O crédito não tem juros, apenas taxa administrativa fixa. As parcelas são menores que financiamentos, você pode usar FGTS na contemplação (imóveis), não há IOF, e é uma forma mais econômica de realizar seus objetivos. Pode economizar até 40% comparado ao financiamento bancário.",
   },
   {
     question: "Posso participar com nome restrito?",
-    answer: "Sim! Uma das grandes vantagens do consórcio é que não há análise de crédito rigorosa como nos bancos. Mesmo com restrições no CPF, você pode participar e realizar seus sonhos. Nossa consultoria é especializada em atender esse público.",
+    answer: "Sim! Uma das grandes vantagens do crédito é que não há análise de crédito rigorosa como nos bancos. Mesmo com restrições no CPF, você pode participar e realizar seus sonhos. Nossa consultoria é especializada em atender esse público.",
   },
   {
     question: "Quanto tempo leva para ser contemplado?",
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: "Posso usar o FGTS?",
-    answer: "Sim! Para consórcios imobiliários, você pode utilizar seu FGTS tanto para dar lance quanto para amortizar parcelas após a contemplação. Nossa equipe te orienta sobre a melhor forma de usar esse benefício.",
+    answer: "Sim! Para créditos imobiliários, você pode utilizar seu FGTS tanto para dar lance quanto para amortizar parcelas após a contemplação. Nossa equipe te orienta sobre a melhor forma de usar esse benefício.",
   },
   {
     question: "O que acontece se eu não puder pagar uma parcela?",
@@ -54,7 +54,7 @@ const FAQ = () => {
             Tire Suas <span className="text-gradient">Dúvidas</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            Respondemos as principais questões sobre consórcios e nosso atendimento consultivo
+            Respondemos as principais questões sobre créditos e nosso atendimento consultivo
           </p>
         </div>
 
@@ -114,7 +114,7 @@ const FAQ = () => {
                 Representante Autorizada Multimarcas
               </h3>
               <p className="text-muted-foreground text-sm">
-                Representamos as principais administradoras de consórcio do país
+                Representamos as principais administradoras de crédito do país
               </p>
             </div>
           </div>

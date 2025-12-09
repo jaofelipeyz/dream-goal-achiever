@@ -3,7 +3,7 @@ const differentials = [
     icon: "ri-user-star-line",
     title: "Atendimento Consultivo",
     description:
-      "Análise personalizada do seu perfil para encontrar a melhor solução de consórcio",
+      "Análise personalizada do seu perfil para encontrar a melhor solução de crédito",
   },
   {
     icon: "ri-lightbulb-flash-line",
@@ -21,7 +21,7 @@ const differentials = [
     icon: "ri-money-dollar-circle-line",
     title: "Sem Juros",
     description:
-      "Consórcio não tem juros, apenas taxa administrativa fixa e transparente",
+      "Crédito não tem juros, apenas taxa administrativa fixa e transparente",
   },
   {
     icon: "ri-calendar-check-line",

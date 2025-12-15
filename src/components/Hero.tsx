@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import heroImage from "@/assets/hero-bg.jpg";
 import natalPromoBg from "@/assets/natal-promo-bg.png";
-
 interface HeroSlide {
   id: number;
   badge: string;
@@ -42,7 +42,9 @@ const slides: HeroSlide[] = [
 ];
 
 const Hero = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false })
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollToSimulator = () => {

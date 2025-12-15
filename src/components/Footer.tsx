@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              Referência em contemplações de crédito. Ajudamos pessoas a
+              🎄 Feliz Natal! Referência em contemplações de crédito. Ajudamos pessoas a
               realizarem seus objetivos com atendimento consultivo e propostas que
               fazem sentido.
             </p>

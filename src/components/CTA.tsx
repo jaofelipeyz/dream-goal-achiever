@@ -25,7 +25,7 @@ const CTA = () => {
             <div className="max-w-3xl">
               <div className="inline-block bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-6">
                 <span className="text-primary font-semibold">
-                  Atendimento Especializado
+                  🎅 Promoção Especial de Natal
                 </span>
               </div>
 

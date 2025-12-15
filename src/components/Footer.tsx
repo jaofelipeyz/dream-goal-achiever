@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpg";
+import logo from "@/assets/logo-natal.png";
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <img src={logo} alt="Connecta Investimento Logo" className="w-10 h-10 object-contain" />
+              <img src={logo} alt="Connecta Investimento Logo" className="w-12 h-12 object-contain" />
               <span className="text-xl font-bold">
                 Connecta <span className="text-primary">Investimento</span>
               </span>

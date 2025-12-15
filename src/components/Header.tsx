@@ -19,7 +19,10 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="Connecta Investimento Logo" className="w-10 h-10 object-contain" />
+              <div className="relative">
+                <img src={logo} alt="Connecta Investimento Logo" className="w-10 h-10 object-contain" />
+                <span className="absolute -top-3 -right-1 text-2xl transform rotate-12">🎅</span>
+              </div>
               <span className="text-2xl font-bold text-foreground">
                 Connecta <span className="text-primary">Investimento</span>
               </span>

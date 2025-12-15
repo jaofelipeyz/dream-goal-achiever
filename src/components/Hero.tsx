@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import natalPromoBg from "@/assets/natal-promo-bg.png";
 
 interface HeroSlide {
   id: number;
@@ -8,6 +9,7 @@ interface HeroSlide {
   title: React.ReactNode;
   description: string;
   backgroundImage: string;
+  isChristmas?: boolean;
 }
 
 const slides: HeroSlide[] = [
@@ -26,16 +28,16 @@ const slides: HeroSlide[] = [
   },
   {
     id: 2,
-    badge: "🏠 Crédito Imobiliário",
+    badge: "🎄 Promoção Especial",
     title: (
       <>
-        Conquiste o <span className="text-orange-500">Imóvel</span> dos Seus
-        Sonhos
+        Promoção de <span className="text-orange-500">Natal</span>
       </>
     ),
     description:
-      "As melhores condições do mercado para você adquirir sua casa própria. Parcelas que cabem no seu bolso e aprovação facilitada.",
-    backgroundImage: heroImage,
+      "Todas as parcelas com 15% de desconto! Aproveite esta oportunidade única para realizar seus sonhos com condições especiais de fim de ano.",
+    backgroundImage: natalPromoBg,
+    isChristmas: true,
   },
 ];
 
@@ -105,30 +107,48 @@ const Hero = () => {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button
-                      onClick={scrollToSimulator}
-                      className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-glow hover:shadow-2xl hover:-translate-y-1 group"
-                      aria-label="Abrir simulador de crédito"
-                    >
-                      <i
-                        className="ri-calculator-line text-2xl group-hover:scale-110 transition-transform"
-                        aria-hidden="true"
-                      ></i>
-                      Simular Meu Crédito
-                    </button>
-                    <a
-                      href="https://wa.me/5541984190707"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-white text-gray-900 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 group"
-                      aria-label="Falar com especialista pelo WhatsApp"
-                    >
-                      <i
-                        className="ri-whatsapp-line text-2xl text-green-500 group-hover:scale-110 transition-transform"
-                        aria-hidden="true"
-                      ></i>
-                      Falar com Especialista
-                    </a>
+                    {slide.isChristmas ? (
+                      <a
+                        href="https://wa.me/5541984190707?text=Olá! Quero garantir a promoção de Natal com 15% de desconto!"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-glow hover:shadow-2xl hover:-translate-y-1 group border-2 border-white/20"
+                        aria-label="Garantir promoção de Natal"
+                      >
+                        <i
+                          className="ri-gift-line text-2xl group-hover:scale-110 transition-transform"
+                          aria-hidden="true"
+                        ></i>
+                        🎁 Garantir a Promoção
+                      </a>
+                    ) : (
+                      <>
+                        <button
+                          onClick={scrollToSimulator}
+                          className="bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-glow hover:shadow-2xl hover:-translate-y-1 group"
+                          aria-label="Abrir simulador de crédito"
+                        >
+                          <i
+                            className="ri-calculator-line text-2xl group-hover:scale-110 transition-transform"
+                            aria-hidden="true"
+                          ></i>
+                          Simular Meu Crédito
+                        </button>
+                        <a
+                          href="https://wa.me/5541984190707"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white text-gray-900 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-semibold text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 group"
+                          aria-label="Falar com especialista pelo WhatsApp"
+                        >
+                          <i
+                            className="ri-whatsapp-line text-2xl text-green-500 group-hover:scale-110 transition-transform"
+                            aria-hidden="true"
+                          ></i>
+                          Falar com Especialista
+                        </a>
+                      </>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-16 pt-16 border-t border-white/20">

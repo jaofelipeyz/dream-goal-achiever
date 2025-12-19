@@ -93,20 +93,8 @@ const FAQ = () => {
 
         {/* Certificações */}
         <div className="mt-16 pt-16 border-t border-border">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <i className="ri-bank-line text-3xl text-primary"></i>
-              </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">
-                Autorizado pelo Banco Central
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                Operamos dentro das normas e regulamentações do Banco Central do Brasil
-              </p>
-            </div>
-
-            <div className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors">
+          <div className="flex justify-center">
+            <div className="bg-card rounded-xl p-6 border border-border text-center hover:border-primary/50 transition-colors max-w-md">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <i className="ri-shield-check-line text-3xl text-primary"></i>
               </div>

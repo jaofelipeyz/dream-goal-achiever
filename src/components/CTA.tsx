@@ -23,12 +23,6 @@ const CTA = () => {
 
           <div className="relative z-10 px-8 md:px-16 py-20 md:py-24">
             <div className="max-w-3xl">
-              <div className="inline-block bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-6">
-                <span className="text-primary font-semibold">
-                  🎅 Promoção Especial de Natal
-                </span>
-              </div>
-
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Pronto Para Realizar Seus <span className="text-primary">Objetivos</span>?
               </h2>

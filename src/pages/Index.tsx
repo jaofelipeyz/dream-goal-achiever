@@ -11,13 +11,11 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import RemoveFloatingElements from "@/components/RemoveFloatingElements";
-import Snowfall from "@/components/Snowfall";
 
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Snowfall />
       <RemoveFloatingElements />
       <Header />
       <Hero />

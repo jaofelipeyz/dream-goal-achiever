@@ -1,4 +1,4 @@
-import logo from "@/assets/logo-natal.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-gray-400 leading-relaxed mb-6">
-              🎄 Feliz Natal! Referência em contemplações de crédito. Ajudamos pessoas a
+              Referência em contemplações de crédito. Ajudamos pessoas a
               realizarem seus objetivos com atendimento consultivo e propostas que
               fazem sentido.
             </p>
